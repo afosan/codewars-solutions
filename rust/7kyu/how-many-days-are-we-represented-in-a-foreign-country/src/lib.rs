@@ -1,7 +1,12 @@
 //! https://www.codewars.com/kata/58e93b4706db4d24ee000096/train/rust
 
+use std::collections::HashSet;
+
 pub fn days_represented(trips: &[(u32, u32)]) -> u32 {
-    trips.iter().map(|(s, e)| e - s + 1).sum()
+    let mut days = HashSet::<u32>::new();
+    trips.iter().for_each(|(s, e)| (*s..=*e).for_each(|i| { days.insert(i); }));
+    
+    days.len() as u32
 }
 
 #[cfg(test)]
