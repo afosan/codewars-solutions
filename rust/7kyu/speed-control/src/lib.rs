@@ -1,9 +1,13 @@
 //! https://www.codewars.com/kata/56484848ba95170a8000004d/train/rust
 
 pub fn gps(s: i32, x: Vec<f64>) -> i32 {
+    if x.len() < 2 {
+        return 0
+    }
+
     x.iter().skip(1).zip(x.iter())
         .map(|(x1, x0)| (3600_f64 * (x1 - x0) / s as f64).floor() as i32)
-        .max().expect("expected at least two elements in `x`")
+        .max().unwrap()
 }
 
 #[cfg(test)]
