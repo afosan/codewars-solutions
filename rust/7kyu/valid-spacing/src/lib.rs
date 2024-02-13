@@ -1,7 +1,7 @@
 //! https://www.codewars.com/kata/5f77d62851f6bc0033616bd8/train/rust
 
 pub fn valid_spacing(s: &str) -> bool {
-    s.split(" ").filter(|ss| ss.len() == 0).count() == 0
+    s == "" || s.split(" ").filter(|ss| ss.len() == 0).count() == 0
 }
 
 #[cfg(test)]
