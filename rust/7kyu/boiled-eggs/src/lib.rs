@@ -1,7 +1,7 @@
 //! https://www.codewars.com/kata/52b5247074ea613a09000164/train/rust
 
 pub fn cooking_time(eggs: u32) -> u32 {
-    5 * ((eggs + 1) / 8 + 1 - if eggs % 8 == 0 { 1 } else { 0 })
+    (eggs / 8 + if eggs % 8 == 0 { 0 } else { 1 }) * 5
 }
 
 #[cfg(test)]
