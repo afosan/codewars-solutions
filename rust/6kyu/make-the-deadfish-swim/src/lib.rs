@@ -9,7 +9,7 @@ pub fn parse(code: &str) -> Vec<i32> {
         'd' => { v -= 1; },
         's' => { v *= v; },
         'o' => { out.push(v); },
-        _ => panic!("unexpected char"),
+        _ => {},
     });
     
     out
