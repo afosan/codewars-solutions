@@ -3,12 +3,7 @@
 use std::collections::HashMap;
 
 pub fn cannons_ready(gunners: HashMap<&str, &str>) -> String {
-    let ready = [
-        "Mike",
-        "Joe",
-        "Johnson",
-        "Peter"
-    ].iter().all(|w| gunners.get(w) == Some(&"aye"));
+    let ready = gunners.values().all(|&v| v == "aye");
     
     (if ready { "Fire!" } else { "Shiver me timbers!" }).to_string()
 }
