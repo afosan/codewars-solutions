@@ -4,7 +4,7 @@ pub fn divisions(n: u32, divisor: u32) -> u32 {
     let mut n = n;
     let mut cnt = 0;
     
-    while n > 1 {
+    while n >= divisor {
         n /= divisor;
         cnt += 1;
     }
