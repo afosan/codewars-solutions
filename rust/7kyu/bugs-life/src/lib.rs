@@ -1,11 +1,10 @@
 //! https://www.codewars.com/kata/5b71af678adeae41df00008c/train/rust
 
 pub fn shortest_distance(a: f64, b: f64, c: f64) -> f64 {
-    vec![
-        a.powi(2) + (b + c).powi(2),
-        b.powi(2) + (a + c).powi(2),
-        c.powi(2) + (a + b).powi(2),
-    ].iter().min_by(|a, b| a.total_cmp(b)).unwrap().sqrt()
+    let largest = a.max(b).max(c);
+    let side = a + b + c - largest;
+
+    (largest.powi(2) + side.powi(2)).sqrt()
 }
 
 #[cfg(test)]
