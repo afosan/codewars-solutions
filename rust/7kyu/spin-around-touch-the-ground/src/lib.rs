@@ -1,25 +1,13 @@
 //! https://www.codewars.com/kata/65127141a5de2b1dcb40927e/train/rust
 
 pub fn spin_around(lst: &[&str]) -> u32 {
-    let mut p = 0_i8;
-    let mut c = 0_i32;
+    let v = lst.iter().map(|w| match *w {
+        "left" => 1,
+        "right" => -1,
+        _ => 0,
+    }).sum::<i32>();
 
-    lst.iter().for_each(|w| {
-        let d = match *w {
-            "left" => -1,
-            "right" => 1,
-            _ => 0,
-        };
-        
-        p += d;
-
-        if p == 4 || p == -4 {
-            c += p.signum() as i32;
-            p = 0;
-        }
-    });
-
-    c.abs() as u32
+    v.abs() as u32 / 4
 }
 
 #[cfg(test)]
