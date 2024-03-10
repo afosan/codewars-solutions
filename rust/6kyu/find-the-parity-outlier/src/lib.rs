@@ -1,7 +1,7 @@
 //! https://www.codewars.com/kata/5526fc09a1bbd946250002dc/train/rust
 
 pub fn find_outlier(values: &[i32]) -> i32 {
-    let others = values.iter().filter(|v| *v % 2 != values[0] % 2).collect::<Vec<_>>();
+    let others = values.iter().filter(|v| v.rem_euclid(2) != values[0].rem_euclid(2)).collect::<Vec<_>>();
 
     if others.len() == 1 { *others[0] } else { values[0] }
 }
