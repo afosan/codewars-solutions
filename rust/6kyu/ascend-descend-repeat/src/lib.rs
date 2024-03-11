@@ -1,7 +1,20 @@
 //! https://www.codewars.com/kata/62ca07aaedc75c88fb95ee2f/train/rust
 
 pub fn ascend_descend(length: usize, minimum: i32, maximum: i32) -> String {
-    (minimum..=maximum).chain((minimum+1..maximum).rev()).map(|n| n.to_string()).cycle().take(length).collect()
+    if maximum < minimum || length == 0 { return "".to_string() };
+
+    let s: String = (minimum..=maximum)
+        .chain(
+            (minimum+1..maximum).rev()
+        )
+        .map(
+            |n| n.to_string()
+        )
+        .cycle()
+        .take(length)
+        .collect();
+    
+    format!("{}", &s[..length])
 }
 
 #[cfg(test)]
