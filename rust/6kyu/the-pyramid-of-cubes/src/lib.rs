@@ -1,11 +1,7 @@
 //! https://www.codewars.com/kata/61707b71059070003793bc0f/train/rust
 
 pub fn find_height (cubes: usize) -> u16 {
-    let mut t = 0;
-    (0..).take_while(|n| {
-        t += n * (n + 1) / 2;
-        t <= cubes
-    }).last().unwrap() as u16 
+    (0..).take_while(|n| n * (n + 1) * (n + 2) / 6 <= cubes).last().unwrap() as u16 
 }
 
 #[cfg(test)]
