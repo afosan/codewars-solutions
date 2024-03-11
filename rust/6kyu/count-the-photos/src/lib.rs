@@ -1,23 +1,15 @@
 //! https://www.codewars.com/kata/6319dba6d6e2160015a842ed/train/rust
 
 pub fn count_photos(road: &str) -> usize {
-    road.chars().fold((0, 0, 0), |(mut t, mut tr, mut tp), c| {
-        match c {
-            '>' => { 
-                tr += 1;
-            },
-            '.' => {
-                tp += 1;
-                t += tr; 
-            },
-            '<' => {
-                t += tp;
-            },
-            _ => {},
-        };
-        
-        (t, tr, tp)
-    }).0
+    road.chars().fold(
+        (0, 0, 0), 
+        |(photo, right, point), c| match c {
+            '>' => (photo, right + 1, point),
+            '.' => (photo + right, right, point + 1),
+            '<' => (photo + point, right, point),
+            _ => panic!("unexpected char"),
+        }
+    ).0
 }
 
 #[cfg(test)]
