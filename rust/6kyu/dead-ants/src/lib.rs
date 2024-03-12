@@ -1,7 +1,17 @@
 //! https://www.codewars.com/kata/57d5e850bfcdc545870000b7/train/rust
 
 pub fn dead_ant_count(ants: &str) -> u32 {
-    ants.replace("ant", "").chars().filter(|c| *c == 'a').count() as u32
+    let (ca, cn, ct) = ants.replace("ant", "").chars().fold(
+        (0_u32, 0_u32, 0_u32),
+        |(ca, cn, ct), c| match c {
+            'a' => (ca + 1, cn, ct),
+            'n' => (ca, cn + 1, ct),
+            't' => (ca, cn, ct + 1),
+            _ => (ca, cn, ct),
+        }
+    );
+    
+    ca.max(cn).max(ct)
 }
 
 #[cfg(test)]
