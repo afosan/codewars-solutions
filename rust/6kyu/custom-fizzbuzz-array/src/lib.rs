@@ -10,11 +10,14 @@ macro_rules! fizz_buzz_custom {
 }
 
 pub fn fizz_buzz_custom_solver(string_one: &str, string_two: &str, num_one: usize, num_two: usize) -> Vec<String> {
-    (1..=100).map(
-        |i|
-        if i % num_one == 0 { string_one.to_owned() }
-        else if i % num_two == 0 { string_two.to_owned() }
-        else { format!("{i}") 
+    (1..=100).map(|i| {
+        let mut v = vec![];
+
+        if i % num_one == 0 { v.push(string_one.to_owned()); }
+        if i % num_two == 0 { v.push(string_two.to_owned()); }
+
+        if v.len() > 0 { v.into_iter().collect::<String>() }
+        else { format!("{i}") }
     }).collect()
 }
 
