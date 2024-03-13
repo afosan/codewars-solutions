@@ -14,11 +14,11 @@ impl Cipher {
     }
 
     fn encode(&self, string: &str) -> String {
-        string.chars().map(|c| self.e.get(&c).unwrap_or(&c)).collect()
+        string.chars().map(|c| self.e.get(&c).unwrap_or(&c).clone()).collect()
     }
 
     fn decode(&self, string: &str) -> String {
-        string.chars().map(|c| self.d.get(&c).unwrap_or(&c)).collect()
+        string.chars().map(|c| self.d.get(&c).unwrap_or(&c).clone()).collect()
     }
 }
 
