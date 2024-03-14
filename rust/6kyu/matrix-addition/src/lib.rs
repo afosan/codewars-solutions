@@ -1,3 +1,5 @@
+//! https://www.codewars.com/kata/526233aefd4764272800036f/train/rust
+
 pub fn matrix_addition(a: &Vec<Vec<i32>>, b: &Vec<Vec<i32>>) -> Vec<Vec<i32>> {
     a.iter().zip(b.iter()).map(|(ai, bi)| ai.iter().zip(bi.iter()).map(|(aij, bij)| aij + bij).collect()).collect()
 }
