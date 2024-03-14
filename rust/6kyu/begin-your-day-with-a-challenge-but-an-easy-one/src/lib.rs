@@ -1,9 +1,10 @@
 //! https://www.codewars.com/kata/5873b2010565844b9100026d/train/rust
 
-pub fn one_two_three(n: u32) -> [String;2] {
+pub fn one_two_three(n: u32) -> [String; 2] {
+    if n == 0 { return ["0".to_string(), "0".to_string()]; }
     [
-        format!("{}{}", "9".repeat(n as usize / 9), if n == 0 { "0".to_string() } else if n % 9 == 0 { "".to_string() } else { (n % 9).to_string() })
-        , if n == 0 { "0".to_string() } else { "1".repeat(n as usize) }
+        format!("{}{}", "9".repeat(n as usize / 9), if n % 9 == 0 { "".to_string() } else { (n % 9).to_string() })
+        , "1".repeat(n as usize)
     ]
 }
 
