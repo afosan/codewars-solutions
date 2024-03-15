@@ -9,14 +9,13 @@ pub fn calculate_1_rm(w: i32, r: i32) -> i32 {
         return w;
     }    
     
-    let w = w as f64;
-    let r = r as f64;
+    let (w, r) = (w as f64, r as f64);
+
+    let c1 = (w * (1_f64 + r / 30_f64)).round();
+    let c2 = (100_f64 * w / (101.3_f64 - 2.67123_f64 * r)).round();
+    let c3 = (w * r.powf(0.1_f64)).round();
     
-    let c1 = (w * (1_f64 + r / 30_f64)).round() as i32;
-    let c2 = (100_f64 * w / (101.3_f64 - 2.67123_f64 * r)).round() as i32;
-    let c3 = (w * r.powf(0.1_f64)).round() as i32;
-    
-    return c1.max(c2).max(c3);
+    c1.max(c2).max(c3).round() as i32
 }
 
 #[cfg(test)]
