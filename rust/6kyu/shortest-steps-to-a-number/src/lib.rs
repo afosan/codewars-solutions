@@ -1,3 +1,5 @@
+//! https://www.codewars.com/kata/5cd4aec6abc7260028dcd942/train/rust
+
 pub fn shortest_steps_to_num (n: u16) -> u16 {
     if n == 1 {
         0
