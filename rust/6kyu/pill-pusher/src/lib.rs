@@ -1,18 +1,7 @@
 //! https://www.codewars.com/kata/628e6f112324192c65cd8c97/train/rust
 
 pub fn prescribe(d: u16, a: u16, b: u16) -> u16 {
-    let mut mx = 0;
-    
-    for ai in 0..=d/a {
-        for bi in 0..=d/b {
-            let temp = ai * a + bi * b;
-            if temp <= d && temp > mx {
-                mx = temp;
-            }
-        }
-    }
-    
-    mx
+    (0..=d).step_by(b as usize).map(|bs| bs + (d - bs) / a * a).max().unwrap()
 }
 
 #[cfg(test)]
