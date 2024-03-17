@@ -1,13 +1,13 @@
 //! https://www.codewars.com/kata/5edc8c53d7cede0032eb6029/train/rust
 
-pub fn solve(n: u64) -> Option<u64> {
-    if n == 1 { return None };
-
-    let b = (1..).skip_while(|i| i * i <= n || n % i != 0).next().unwrap();
+pub fn solve(n: u64) -> Option<u64> {    
+    let b_some = (1..=n).skip_while(|i| i * i <= n || n % i != 0 || (n % 2 == 0 && (i % 2 == 1 || (n / i) % 2 == 1))).next();
+    if b_some.is_none() { return None; }
+    let b = b_some.unwrap();
     let s = n / b;
     let diff = b - s;
     
-    println!("{n} {diff}");
+    println!("{n} {diff} {b} {s}");
     
     if diff > 0 && diff % 2 == 0 {
         Some( (diff / 2).pow(2) )
