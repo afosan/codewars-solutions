@@ -7,8 +7,6 @@ pub fn solve(n: u64) -> Option<u64> {
     let s = n / b;
     let diff = b - s;
     
-    println!("{n} {diff} {b} {s}");
-    
     if diff > 0 && diff % 2 == 0 {
         Some( (diff / 2).pow(2) )
     } else {
