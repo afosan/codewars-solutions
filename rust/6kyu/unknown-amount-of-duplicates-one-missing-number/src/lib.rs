@@ -14,12 +14,12 @@ pub fn find_dups_miss(arr: &[u32]) -> (u32, Vec<u32>) {
     
     dups.sort_unstable();
     
-    let minn = hs.iter().min().unwrap();
-    let maxx = hs.iter().max().unwrap();
-    let summ = hs.iter().sum::<u32>();
+    let minn = *hs.iter().min().unwrap() as u64;
+    let maxx = *hs.iter().max().unwrap() as u64;
+    let summ = hs.iter().map(|n| *n as u64).sum::<u64>();
     let missing = (minn + maxx) * (maxx - minn + 1) / 2 - summ;
     
-    (missing, dups)
+    (missing as u32, dups)
 }
 
 #[cfg(test)]
