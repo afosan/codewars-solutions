@@ -3,6 +3,7 @@
 use std::collections::HashMap;
 
 pub fn convert(word: &str) -> u64 {
+    let word = word.to_lowercase();
     let mut mapping = HashMap::<char, u64>::new();
     let mut next_digit = 1;
     
