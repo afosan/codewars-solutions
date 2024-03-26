@@ -1,5 +1,7 @@
 //! https://www.codewars.com/kata/5d653190d94b3b0021ec8f2b/train/rust
 
+// TODO: timeouts
+
 use itertools::Itertools;
 
 pub fn product_sum(a: &[u32], m: u32) -> u64 {    
