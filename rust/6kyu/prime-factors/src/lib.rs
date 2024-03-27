@@ -1,5 +1,7 @@
 //! https://www.codewars.com/kata/542f3d5fd002f86efc00081a/train/rust
 
+// TODO: timeouts
+
 pub fn prime_factors(n: u32) -> Vec<u32> {
     let mut out = vec![];
     let mut n = n;
